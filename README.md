@@ -308,3 +308,20 @@ Higher-priority packages are dispatched first, while lower-priority deliveries a
 The planner also accounts for delivery durations and return trips to the warehouse, ensuring that all deliveries are completed without violating package deadlines.
 
 This example highlights how temporal constraints and priorities work together to produce an efficient and feasible delivery schedule.
+
+## Running the Planner 
+The planning problems were solved using the ENHSP (Expressive Numeric Heuristic Search Planner) planner.
+
+Before running the planner, ensure that:
+
+- Java is installed on your system (Java 8 or newer).
+- The ENHSP planner package has been downloaded and extracted.
+- The domain and problem PDDL files are located in the same working directory.
+
+### Q1 – Classical PDDL Model
+
+The classical PDDL problems were executed directly in Visual Studio Code using the PDDL extension.
+
+### Q2 – PDDL+ Temporal Model
+
+The PDDL+ model was tested using an online PDDL+ planner/editor, since the Visual Studio Code planner used for Q1 does not fully support temporal processes, events and continuous time reasoning.
