@@ -2,9 +2,7 @@
 
   (:requirements :strips :typing :negative-preconditions :action-costs :adl)
 
-  (:types
-    robot package location
-  )
+  (:types robot package location )
 
   (:predicates
     (at ?r - robot ?l - location)
@@ -15,6 +13,7 @@
     (destination ?p - package ?l - location)
     (connected ?from ?to - location)
     
+    ;; This predicates classify packages
     (high-priority ?p - package)
     (medium-priority ?p - package)
     (low-priority ?p - package)
@@ -27,6 +26,7 @@
     (total-cost)
   )
 
+;; Robot can move from a location to an other location
   (:action move
     :parameters (?r - robot ?from - location ?to - location)
     :precondition (and (at ?r ?from)
@@ -37,13 +37,13 @@
                  (increase (total-cost) 1)
             )
   )
-
+ 
   (:action pick-up
     :parameters (?r - robot ?p - package ?l - location)
-    :precondition (and (at ?r ?l)
-                       (package-at ?p ?l)
-                       (free ?r)
-                       (not (delivered ?p))
+    :precondition (and (at ?r ?l)            ;; Same location robot and package
+                       (package-at ?p ?l)    
+                       (free ?r)             ;; Robot is free 
+                       (not (delivered ?p))  ;; Robot is not delivered
                       ;; A package can be picked up only when all its predecessors are delivered.
                        (forall (?u - package)
                           (imply (must-before ?u ?p)

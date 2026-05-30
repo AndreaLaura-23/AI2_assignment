@@ -8,26 +8,31 @@
   )
 
   (:init
-    (depot warehouse)
+    (depot warehouse)  ;; Define the warehouse as a depot
     
+    ;; Locations A-E are the client
     (customer-location A)
     (customer-location B)
     (customer-location C)
     (customer-location D)
     (customer-location E)
 
+    ;; Both robots start from the depot
     (at r1 warehouse)
     (at r2 warehouse)
 
+    ;; Both robots are available
     (available r1)
     (available r2)
 
+    ;; All packages are at the depot
     (package-at p1 warehouse)
     (package-at p2 warehouse)
     (package-at p3 warehouse)
     (package-at p4 warehouse)
     (package-at p5 warehouse)
 
+    ;; All packages has a client
     (destination p1 A)
     (destination p2 B)
     (destination p3 C)
@@ -37,6 +42,7 @@
     (= (clock) 0)
     (= (total-cost) 0)
 
+    ;; No delivery has started
     (= (delivery-progress p1) 0)
     (= (delivery-progress p2) 0)
     (= (delivery-progress p3) 0)
@@ -46,24 +52,28 @@
     (= (return-progress r1) 0)
     (= (return-progress r2) 0)
 
-    (= (delivery-time p1) 3)
-    (= (delivery-time p2) 4)
+    ;; Necessary time to deliver a package
+    (= (delivery-time p1) 5)
+    (= (delivery-time p2) 5)
     (= (delivery-time p3) 5)
-    (= (delivery-time p4) 6)
+    (= (delivery-time p4) 5)
     (= (delivery-time p5) 5)
 
-    (= (deadline p1) 5)
+    ;; All packages must be deliver before this deadline
+    (= (deadline p1) 6)
     (= (deadline p2) 10)
     (= (deadline p3) 16)
     (= (deadline p4) 20)
     (= (deadline p5) 12)
 
+    ;; Priority of packages. Higher = More important.
     (= (priority p1) 10)
     (= (priority p2) 8)
     (= (priority p3) 4)
     (= (priority p4) 2)
     (= (priority p5) 6)
 
+    ;; Cost to return back to the depot
     (= (return-time A warehouse) 2)
     (= (return-time B warehouse) 2)
     (= (return-time C warehouse) 2)

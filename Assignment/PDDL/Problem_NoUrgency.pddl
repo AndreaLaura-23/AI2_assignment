@@ -11,12 +11,15 @@
   (:init
     (= (total-cost) 0)
 
+    ;; Robots at the warehouse
     (at r1 warehouse)
     (at r2 warehouse)
 
+    ;; Robots are free at the 
     (free r1)
     (free r2)
 
+    ;; All packages are at the warehouse
     (package-at p1 warehouse)
     (package-at p2 warehouse)
     (package-at p3 warehouse)

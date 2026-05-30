@@ -1,13 +1,6 @@
 (define (domain priority-delivery-pddlplus)
 
-  (:requirements
-    :strips
-    :typing
-    :negative-preconditions
-    :fluents
-    :adl
-    :time
-  )
+  (:requirements :strips :typing :negative-preconditions :fluents :adl :time )
 
   (:types robot package location)
 
@@ -38,7 +31,7 @@
     (priority ?p - package)
   )
 
-  ;; Time progression
+  ;; Time progression 
   (:process time-passing
     :parameters ()
     :precondition (and)
