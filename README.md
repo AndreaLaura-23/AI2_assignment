@@ -325,3 +325,6 @@ The classical PDDL problems were executed directly in Visual Studio Code using t
 ### Q2 – PDDL+ Temporal Model
 
 The PDDL+ model was tested using an online PDDL+ planner/editor, since the Visual Studio Code planner used for Q1 does not fully support temporal processes, events and continuous time reasoning.
+
+## Observation
+The submitted codes and report have been thoroughly reviewed by the teaching assistant, Omar Kashmar.
